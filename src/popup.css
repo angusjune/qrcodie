@@ -11,12 +11,20 @@
 
 html {
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;
-    color: #222;
 }
 
 body {
-    width: 350px;
-    height: 300px;
+    --bg: #fff;
+    --tooltip-bg: #323232;
+    --tooltip-text: #fff;
+    --textfield-bg: #F1F3F4;
+    --textfield-text: rgba(0,0,0,0.35);
+    --textfield-text-focus: rgba(0,0,0,0.8);
+    --textfield-action: #626365;
+    --textfield-action-active: rgba(0,0,0,0.05);
+
+    width: 250px;
+    background: var(--bg);
 }
 
 .app {
@@ -26,67 +34,109 @@ body {
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    padding: 20px;
+    padding: 35px 25px 25px;
 }
 
-.title {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 10px;
+.qr-code-wrapper {
+    width: 180px;
+    height: 180px;
 }
 
-.subtitle {
+.qr-code-wrapper a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.textfield {
+    position: relative;
+    width: 100%;
+    height: 32px;
+    margin-top: 25px;
+}
+
+.textfield__input {
     font-size: 12px;
-}
-
-code {
-    font-size: 12px;
-    font-family: inherit;
-    background-color: rgba(254, 237, 185, .3);
-    padding: 2px 4px;
-    border-radius: 2px;
-}
-
-.counter-label {
-    font-size: 12px;
-    margin-bottom: 5px;
-}
-
-.counter {
-    font-size: 36px;
-    font-weight: 700;
-}
-
-.button-container {
-    margin-top: 15px;
-}
-
-.button {
+    color: var(--textfield-text);
+    background: var(--textfield-bg);
+    width: 100%;
+    height: 100%;
+    border-radius: 22px;
     border: 0;
-    display: inline-block;
-    padding: 10px 20px;
-    margin-right: 4px;
-    margin-left: 4px;
-    background-color: bisque;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: transform .2s ease;
-    user-select: none;
+    padding: 0 44px 0 12px;
+    text-overflow: ellipsis;
 }
 
-.button:focus {
+.textfield__input.shrink {
+    padding-right: 70px;
+}
+
+.textfield__input:focus {
+    color: var(--textfield-text-focus);
+    text-overflow: clip;
     outline: none;
+    box-shadow: 0 0 0 2px #a9c3f7;
 }
 
-.button:hover {
-    transform: scale(1.1);
+.textfield__actions {
+    background: var(--textfield-bg);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    padding: 0 12px;
+    align-items: center;
+    border-radius: 22px;
 }
 
-.divider {
-    margin: 30px auto 25px;
-    width: 50px;
-    border: .5px dashed #000;
-    opacity: .1;
+.textfield__actions__btn {
+    position: relative;
+    display: block;
+    width: 18px;
+    height: 18px;
+    margin-left: 10px;
+}
+
+.textfield__actions__btn.hidden {
+    display: none;
+}
+
+.textfield__actions__btn:first-child {
+    margin-left: 0;
+}
+
+.textfield__actions__btn:before {
+    position: absolute;
+    content: '';
+    top: -6px;
+    bottom: -6px;
+    left: -11px;
+    right: -11px;
+    border-radius: 20px;
+    background: var(--textfield-action-active);
+    opacity: 0;
+    will-change: opacity;
+    transition: opacity 0.15s linear;
+}
+
+.textfield__actions__btn:hover:before {
+    opacity: 1;
+}
+
+.textfield__actions__btn svg path {
+    fill: var(--textfield-action);
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        --bg: #292A2D;
+        --tooltip-bg: #323232;
+        --tooltip-text: #fff;
+        --textfield-bg: #202124;
+        --textfield-text: rgba(255,255,255,0.35);
+        --textfield-text-focus: rgba(255,255,255,0.8);
+        /* --textfield-action: #626365; */
+        --textfield-action-active: rgba(255,255,255,0.05);
+    }
 }
