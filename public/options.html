@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Options</title>
+    <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+    <section class="section">
+        <h2 data-msg="dark-mode" class="mdc-typography--subtitle1 headline">Dark Mode</h2>
+        <div class="mdc-card">
+            <ul class="icon-list">
+				<li class="icon-list-item">
+					<input id="iconStar" class="icon-list-item__native-control" type="radio" name="icon-type-group" value="star" checked>
+					<label for="iconStar" class="icon-list-item__graphic icon-list-item__graphic--star"></label>
+				</li>
+				<li class="icon-list-item">
+					<input id="iconBookmark" class="icon-list-item__native-control" type="radio" name="icon-type-group" value="bookmark">
+					<label for="iconBookmark" class="icon-list-item__graphic icon-list-item__graphic--bookmark"></label>
+				</li>
+				<li class="icon-list-item">
+					<input id="iconStars" class="icon-list-item__native-control" type="radio" name="icon-type-group" value="stars">
+					<label for="iconStars" class="icon-list-item__graphic icon-list-item__graphic--stars"></label>
+				</li>
+			</ul>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 data-msg="dark-mode" class="mdc-typography--subtitle1 headline">Download</h2>
+        <p></p>
+
+        <div class="mdc-card">
+
+			<div class="mdc-list" role="group">
+
+				<!-- Download as .svg -->
+				<label for="dlAsSvgNative" class="mdc-list-item" role="checkbox" aria-checked="false">
+					<span data-msg="dlAsSvg">Download as .svg</span>
+
+					<div class="mdc-switch mdc-switch--checked mdc-list-item__meta" id="dlAsSvg">
+						<div class="mdc-switch__track"></div>
+						<div class="mdc-switch__thumb-underlay">
+							<div class="mdc-switch__thumb">
+								<input id="dlAsSvgNative" type="checkbox" class="mdc-switch__native-control" role="switch">
+							</div>
+						</div>
+					</div>
+				</label>
+
+				<hr class="mdc-list-divider">
+
+				<div class="mdc-form-field">
+					<div class="mdc-radio">
+					  <input class="mdc-radio__native-control" type="radio" id="radio-1" name="radios" checked>
+					  <div class="mdc-radio__background">
+						<div class="mdc-radio__outer-circle"></div>
+						<div class="mdc-radio__inner-circle"></div>
+					  </div>
+					  <div class="mdc-radio__ripple"></div>
+					</div>
+					<label for="radio-1">Auto</label>
+				</div>
+
+				<div class="mdc-form-field">
+					<div class="mdc-radio">
+					  <input class="mdc-radio__native-control" type="radio" id="radio-2" name="radios" checked>
+					  <div class="mdc-radio__background">
+						<div class="mdc-radio__outer-circle"></div>
+						<div class="mdc-radio__inner-circle"></div>
+					  </div>
+					  <div class="mdc-radio__ripple"></div>
+					</div>
+					<label for="radio-2">Light</label>
+				</div>
+
+				
+				
+			</div>
+
+            <!-- <ul class="icon-list">
+				<li class="icon-list-item">
+					<input id="iconStar" class="icon-list-item__native-control" type="radio" name="icon-type-group" value="star" checked>
+					<label for="iconStar" class="icon-list-item__graphic icon-list-item__graphic--star"></label>
+				</li>
+				<li class="icon-list-item">
+					<input id="iconBookmark" class="icon-list-item__native-control" type="radio" name="icon-type-group" value="bookmark">
+					<label for="iconBookmark" class="icon-list-item__graphic icon-list-item__graphic--bookmark"></label>
+				</li>
+				<li class="icon-list-item">
+					<input id="iconStars" class="icon-list-item__native-control" type="radio" name="icon-type-group" value="stars">
+					<label for="iconStars" class="icon-list-item__graphic icon-list-item__graphic--stars"></label>
+				</li>
+            </ul> -->
+
+            
+
+        </div>
+    </section>
+    <script src="options.js"></script>
+</body>
+</html>

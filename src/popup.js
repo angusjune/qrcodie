@@ -1,6 +1,6 @@
 'use strict';
 
-import "./popup.css";
+import "./popup.scss";
 import QRCode from 'qrcode-svg';
 import Canvg from 'canvg';
 
@@ -13,7 +13,7 @@ import Canvg from 'canvg';
 
   let initContent = '';
 
-  const isDark = window.matchMedia('(prefers-color-scheme: dark)');
+  const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
   const generateCode = content => {
     // Create a qr code to be displayed
@@ -46,7 +46,7 @@ import Canvg from 'canvg';
     $qrCode.setAttribute('href', $canvas.toDataURL('image/png'));
   };
 
-  chrome.tabs.query({active: true}, tabs => {
+  chrome.tabs.query({active: true, currentWindow: true}, tabs => {
     const url = tabs[0].url;
     initContent = url;
     generateCode(url);

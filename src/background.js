@@ -20,32 +20,11 @@
 //   }
 // });
 
-const $input = document.querySelector('#input');
-const $qrCode = document.querySelector('#qrCode');
+const isDark  = window.matchMedia("(prefers-color-scheme: dark)").matches; // OS set to dark mode
+const isIncognito = chrome.extension.inIncognitoContext; // Chrome is in incognito context
 
-chrome.browserAction.onClicked.addListener(tab => {
-  console.log('clicked');
-  const url = tab.url;
-  const qrCode = new QRCode({
-    content: url,
-    padding: 0,
-    width: 200,
-    height: 200,
-    color: "#222",
-    background: "transparent",
-    join: true,
-    ecl: "M",
-  }).svg();
 
-  chrome.runtime.sendMessage(
-      {inputValue: url, qrCode: qrCode},
-      response => {
-        console.log(response.message);
-      }
-    );
-  // console.log(tab);
-  // $input.value = url;
-
-  
-  // $qrCode.innerHTML = qrcode;
-});
+if (isDark || isIncognito) {
+    // set light-colored icon in dark UI
+    chrome.browserAction.setIcon({ path: `icons/icon-light-48.png`});
+}

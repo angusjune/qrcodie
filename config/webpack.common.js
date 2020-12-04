@@ -43,6 +43,21 @@ const common = {
           },
         ],
       },
+      {
+        test: /\.(scss|sass)$/i,
+        use: [
+          { loader: MiniCssExtractPlugin.loader},
+          { loader: 'css-loader'},
+          {
+            loader: "sass-loader",
+            options: {
+              sassOptions: {
+                includePaths: ["./node_modules"]
+              }
+            }
+          }
+        ]
+      }
     ],
   },
   plugins: [
