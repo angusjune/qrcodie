@@ -1,6 +1,6 @@
 @import './app.css';
 
-body {
+body, body.light {
     --tooltip-bg: #323232;
     --tooltip-text: #fff;
     --textfield-bg: #F1F3F4;
@@ -11,7 +11,7 @@ body {
     --textfield-action-active: #4C4D50;
     --textfield-action-active-bg: rgba(0,0,0,0.05);
 
-    width: 250px;
+    // width: 250px;
     background: var(--bg);
 }
 
@@ -22,7 +22,11 @@ body {
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    padding: 35px 25px 25px;
+    padding: 35px 35px 25px;
+
+    body.remove-textfield & {
+        padding: 20px;
+    }
 }
 
 .qr-code-wrapper {
@@ -41,6 +45,10 @@ body {
     width: 100%;
     height: 32px;
     margin-top: 25px;
+
+    body.remove-textfield & {
+        display: none;
+    }
 }
 
 .textfield__input {

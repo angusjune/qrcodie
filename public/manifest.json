@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "Qrcodie",
+  "name": "QRCodie",
   "version": "0.1.0",
-  "description": "My Chrome Extension",
+  "description": "Generate QR Codes.",
   "icons": {
     "16": "icons/icon-16.png",
     "32": "icons/icon-32.png",
@@ -10,7 +10,7 @@
     "128": "icons/icon-128.png"
   },
   "browser_action": {
-    "default_title": "Qrcodie",
+    "default_title": "QRCodie",
     "default_popup": "popup.html"
   },
   "background": {

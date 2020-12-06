@@ -5,98 +5,156 @@
     <title>Options</title>
     <link rel="stylesheet" href="options.css" />
 </head>
-<body>
+<body class="mdc-typography">
     <section class="section">
-        <h2 data-msg="dark-mode" class="mdc-typography--subtitle1 headline">Dark Mode</h2>
-        <div class="mdc-card">
-            <ul class="icon-list">
-				<li class="icon-list-item">
-					<input id="iconStar" class="icon-list-item__native-control" type="radio" name="icon-type-group" value="star" checked>
-					<label for="iconStar" class="icon-list-item__graphic icon-list-item__graphic--star"></label>
-				</li>
-				<li class="icon-list-item">
-					<input id="iconBookmark" class="icon-list-item__native-control" type="radio" name="icon-type-group" value="bookmark">
-					<label for="iconBookmark" class="icon-list-item__graphic icon-list-item__graphic--bookmark"></label>
-				</li>
-				<li class="icon-list-item">
-					<input id="iconStars" class="icon-list-item__native-control" type="radio" name="icon-type-group" value="stars">
-					<label for="iconStars" class="icon-list-item__graphic icon-list-item__graphic--stars"></label>
-				</li>
-			</ul>
-        </div>
-    </section>
+		<header class="section__header">
+			<h1 class="mdc-typography--headline6" data-msg="popup">Popup</h1>
+		</header>
+        <div class="mdc-card mdc-theme--on-surface">
+			<div class="mdc-list-group">
 
-    <section class="section">
-        <h2 data-msg="dark-mode" class="mdc-typography--subtitle1 headline">Download</h2>
-        <p></p>
+				<!-- Display textfield -->
+				<div class="mdc-list mdc-list--two-line" role="group">
+					<label for="displayInputNative" class="mdc-list-item" role="checkbox" aria-checked="false">
+						<span class="mdc-list-item__text">
+						<span class="mdc-list-item__primary-text" data-msg="displayInput">Display textbox</span>
+						<span class="mdc-list-item__secondary-text">The textbox beneath the QR code</span>
+						</span>
 
-        <div class="mdc-card">
-
-			<div class="mdc-list" role="group">
-
-				<!-- Download as .svg -->
-				<label for="dlAsSvgNative" class="mdc-list-item" role="checkbox" aria-checked="false">
-					<span data-msg="dlAsSvg">Download as .svg</span>
-
-					<div class="mdc-switch mdc-switch--checked mdc-list-item__meta" id="dlAsSvg">
-						<div class="mdc-switch__track"></div>
-						<div class="mdc-switch__thumb-underlay">
-							<div class="mdc-switch__thumb">
-								<input id="dlAsSvgNative" type="checkbox" class="mdc-switch__native-control" role="switch">
+						<div class="mdc-switch mdc-list-item__meta" id="displayInput">
+							<div class="mdc-switch__track"></div>
+							<div class="mdc-switch__thumb-underlay">
+								<div class="mdc-switch__thumb">
+									<input id="displayInputNative" type="checkbox" class="mdc-switch__native-control" role="switch">
+								</div>
 							</div>
 						</div>
-					</div>
-				</label>
+					</label>
+				</div>
 
 				<hr class="mdc-list-divider">
 
+				<!-- Appearance of the popup window -->
+				<h2 class="mdc-typography--subtitle2 card-content" data-msg="style">Appearance</h2>
+
+				<div class="radio-group">
+
 				<div class="mdc-form-field">
-					<div class="mdc-radio">
-					  <input class="mdc-radio__native-control" type="radio" id="radio-1" name="radios" checked>
-					  <div class="mdc-radio__background">
+					<div class="mdc-radio" id="dpCodeStyle-auto">
+						<input class="mdc-radio__native-control" type="radio" id="dpCodeStyleNative-auto" name="dp-code-style" value="auto" checked>
+						<div class="mdc-radio__background">
 						<div class="mdc-radio__outer-circle"></div>
 						<div class="mdc-radio__inner-circle"></div>
-					  </div>
-					  <div class="mdc-radio__ripple"></div>
+						</div>
+						<div class="mdc-radio__ripple"></div>
 					</div>
-					<label for="radio-1">Auto</label>
+					<label for="dpCodeStyleNative-auto">Auto</label>
 				</div>
 
 				<div class="mdc-form-field">
-					<div class="mdc-radio">
-					  <input class="mdc-radio__native-control" type="radio" id="radio-2" name="radios" checked>
-					  <div class="mdc-radio__background">
+					<div class="mdc-radio" id="dpCodeStyle-light">
+						<input class="mdc-radio__native-control" type="radio" id="dpCodeStyleNative-light" value="light" name="dp-code-style">
+						<div class="mdc-radio__background">
 						<div class="mdc-radio__outer-circle"></div>
 						<div class="mdc-radio__inner-circle"></div>
-					  </div>
-					  <div class="mdc-radio__ripple"></div>
+						</div>
+						<div class="mdc-radio__ripple"></div>
 					</div>
-					<label for="radio-2">Light</label>
+					<label for="dpCodeStyleNative-light">Light</label>
 				</div>
 
-				
-				
+				<div class="mdc-form-field">
+					<div class="mdc-radio" id="dpCodeStyle-dark">
+						<input class="mdc-radio__native-control" type="radio" id="dpCodeStyleNative-dark" value="dark" name="dp-code-style">
+						<div class="mdc-radio__background">
+						<div class="mdc-radio__outer-circle"></div>
+						<div class="mdc-radio__inner-circle"></div>
+						</div>
+						<div class="mdc-radio__ripple"></div>
+					</div>
+					<label for="dpCodeStyleNative-dark">Dark</label>
+				</div>
+
+				</div>
 			</div>
-
-            <!-- <ul class="icon-list">
-				<li class="icon-list-item">
-					<input id="iconStar" class="icon-list-item__native-control" type="radio" name="icon-type-group" value="star" checked>
-					<label for="iconStar" class="icon-list-item__graphic icon-list-item__graphic--star"></label>
-				</li>
-				<li class="icon-list-item">
-					<input id="iconBookmark" class="icon-list-item__native-control" type="radio" name="icon-type-group" value="bookmark">
-					<label for="iconBookmark" class="icon-list-item__graphic icon-list-item__graphic--bookmark"></label>
-				</li>
-				<li class="icon-list-item">
-					<input id="iconStars" class="icon-list-item__native-control" type="radio" name="icon-type-group" value="stars">
-					<label for="iconStars" class="icon-list-item__graphic icon-list-item__graphic--stars"></label>
-				</li>
-            </ul> -->
-
-            
-
         </div>
     </section>
+
+    <section class="section">
+		<header class="section__header">
+			<h1 class="mdc-typography--headline6" data-msg="download">Download</h1>
+			<p class="mdc-typography-body1" data-msg="download-description">You can click the QR code to download</p>
+		</header>
+
+        <div class="mdc-card">
+			<div class="mdc-list-group">
+
+				<!-- Download as .svg -->
+				<div class="mdc-list" role="group">
+					<label for="dlAsSvgNative" class="mdc-list-item" role="checkbox" aria-checked="false">
+						<span data-msg="dlAsSvg">Download as .svg</span>
+
+						<div class="mdc-switch mdc-list-item__meta" id="dlAsSvg">
+							<div class="mdc-switch__track"></div>
+							<div class="mdc-switch__thumb-underlay">
+								<div class="mdc-switch__thumb">
+									<input id="dlAsSvgNative" type="checkbox" class="mdc-switch__native-control" role="switch">
+								</div>
+							</div>
+						</div>
+					</label>
+				</div>
+
+				<hr class="mdc-list-divider">
+
+				<!-- Appearance of the downloaded code -->
+				<h2 class="mdc-typography--subtitle2 card-content" data-msg="style">Style</h2>
+
+				<div class="radio-group">
+
+				<div class="mdc-form-field">
+					<div class="mdc-radio" id="dlCodeStyle-auto">
+						<input class="mdc-radio__native-control" type="radio" id="dlCodeStyleNative-auto" value="auto" name="dl-code-style">
+						<div class="mdc-radio__background">
+						<div class="mdc-radio__outer-circle"></div>
+						<div class="mdc-radio__inner-circle"></div>
+						</div>
+						<div class="mdc-radio__ripple"></div>
+					</div>
+					<label for="dlCodeStyleNative-auto">Auto</label>
+				</div>
+	
+				<div class="mdc-form-field">
+					<div class="mdc-radio" id="dlCodeStyle-light">
+						<input class="mdc-radio__native-control" type="radio" id="dlCodeStyleNative-light" value="light" name="dl-code-style" checked>
+						<div class="mdc-radio__background">
+						<div class="mdc-radio__outer-circle"></div>
+						<div class="mdc-radio__inner-circle"></div>
+						</div>
+						<div class="mdc-radio__ripple"></div>
+					</div>
+					<label for="dlCodeStyleNative-light">Light</label>
+				</div>
+	
+				<div class="mdc-form-field">
+					<div class="mdc-radio" id="dlCodeStyle-dark">
+						<input class="mdc-radio__native-control" type="radio" id="dlCodeStyleNative-dark" value="dark" name="dl-code-style">
+						<div class="mdc-radio__background">
+						<div class="mdc-radio__outer-circle"></div>
+						<div class="mdc-radio__inner-circle"></div>
+						</div>
+						<div class="mdc-radio__ripple"></div>
+					</div>
+					<label for="dlCodeStyleNative-dark">Dark</label>
+				</div>
+
+				</div>
+		
+			</div>
+			
+        </div>
+	</section>
+	
     <script src="options.js"></script>
 </body>
 </html>
