@@ -1,0 +1,63 @@
+{
+  "ext_name": {
+    "message": "QRCodie"
+  },
+  "ext_desc": {
+    "message": "A beautiful QR Code generator."
+  },
+  "ext_title": {
+    "message": "Generate QR Code"
+  },
+
+  "paste": {
+    "message": "Paste"
+  },
+
+  "clear": {
+    "message": "Clear"
+  },
+
+  "popup": {
+    "message": "Popup"
+  },
+
+  "show_input": {
+    "message": "Show textbox"
+  },
+
+  "show_input_desc": {
+    "message": "The textbox beneath the QR code"
+  },
+
+  "appearance": {
+    "message": "Appearance"
+  },
+
+  "auto": {
+    "message": "Auto"
+  },
+
+  "light": {
+    "message": "Light"
+  },
+
+  "dark": {
+    "message": "Dark"
+  },
+
+  "download": {
+    "message": "Download"
+  },
+
+  "download_desc": {
+    "message": "You can download the QR Code by clicking"
+  },
+
+  "download_as_svg": {
+    "message": "Download as .svg"
+  },
+
+  "style": {
+    "message": "Style"
+  }
+}

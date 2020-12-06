@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
   "name": "QRCodie",
-  "version": "0.1.0",
-  "description": "Generate QR Codes.",
+  "version": "2.0.0",
+  "description": "__MSG_ext_desc__",
   "icons": {
     "16": "icons/icon-16.png",
     "32": "icons/icon-32.png",
@@ -10,7 +10,7 @@
     "128": "icons/icon-128.png"
   },
   "browser_action": {
-    "default_title": "QRCodie",
+    "default_title": "__MSG_ext_title__",
     "default_popup": "popup.html"
   },
   "background": {
@@ -25,5 +25,6 @@
     "storage",
     "tabs",
     "clipboardRead"
-  ]
+  ],
+  "default_locale": "en"
 }

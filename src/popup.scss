@@ -7,11 +7,10 @@ body, body.light {
     --textfield-text: rgba(0,0,0,0.35);
     --textfield-text-focus: rgba(0,0,0,0.8);
     --textfield-outline-focus:  #a9c3f7;
-    --textfield-action: #626365;
-    --textfield-action-active: #4C4D50;
+    --textfield-action: #7b7d81;
+    --textfield-action-active: #686a6e;
     --textfield-action-active-bg: rgba(0,0,0,0.05);
 
-    // width: 250px;
     background: var(--bg);
 }
 
@@ -91,10 +90,10 @@ body, body.light {
     display: block;
     width: 18px;
     height: 18px;
-    margin-left: 15px;
+    margin-right: 15px;
 
-    &:first-child {
-        margin-left: 0;
+    &:last-child {
+        margin-right: 0;
     }
 
     &:before {

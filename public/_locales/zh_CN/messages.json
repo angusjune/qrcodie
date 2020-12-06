@@ -1,0 +1,63 @@
+{
+  "ext_name": {
+    "message": "QRCodie"
+  },
+  "ext_desc": {
+    "message": "优雅的二维码生成器"
+  },
+  "ext_title": {
+    "message": "生成当前页面二维码"
+  },
+
+  "paste": {
+    "message": "粘贴"
+  },
+
+  "clear": {
+    "message": "清除"
+  },
+
+  "popup": {
+    "message": "弹出窗"
+  },
+
+  "show_input": {
+    "message": "显示输入框"
+  },
+
+  "show_input_desc": {
+    "message": "二维码下方的输入框"
+  },
+
+  "appearance": {
+    "message": "外观"
+  },
+
+  "auto": {
+    "message": "自动"
+  },
+
+  "light": {
+    "message": "浅色"
+  },
+
+  "dark": {
+    "message": "暗色"
+  },
+
+  "download": {
+    "message": "下载"
+  },
+
+  "download_desc": {
+    "message": "你可通过单击来下载当前二维码"
+  },
+
+  "download_as_svg": {
+    "message": "以 svg 格式下载"
+  },
+
+  "style": {
+    "message": "下载的二维码样式"
+  }
+}

@@ -46,7 +46,6 @@ const init =() => {
 
   if (!isDpCodeDark) { document.querySelector('body').classList.add('light'); }
   if (!displayInput) { document.querySelector('body').classList.add('remove-textfield'); }
-  console.log('isDpCodeDark', isDpCodeDark);
 
   const generateCode = content => {
     // Create a qr code to be displayed
@@ -101,13 +100,31 @@ const init =() => {
     $input.classList.add('shrink');
   };
 
+  // Generate new code on content change
+  $input.addEventListener('input', e => {
+    generateCode(e.target.value);
+    showBtnClear();
+  });
+
+  // On input blur
+  $input.addEventListener('blur', e => {
+    if (e.target.value == '') {
+      $input.value = initContent;
+      generateCode(initContent);
+      hideBtnClear();
+    }
+  });
+
+  // Select all on focus
+  $input.addEventListener('focus', e => {
+    $input.select();
+  });
+
   // Paste button
   $btnPaste.addEventListener('click', e => {
     e.preventDefault();
     $input.select();
     document.execCommand('paste');
-    generateCode($input.value);
-    showBtnClear();
   });
 
   // Clear button
