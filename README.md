@@ -1,16 +1,19 @@
-# <img src="public/icons/icon-48.png" width="45" align="left"> Qrcodie
+# <img src="public/icons/icon-128.png" width="32" align="left"> Qrcodie
 
-#QRCodie
 An elegant Chrome extension to generate QR Codes
 
-## Develope Your Own
+## Watch
 
 `npm run watch`
 
-## Build Your Own
+Open `chrome://extensions/` on Chrome and turn on Developer Mode (on the top right corner)
+
+Drag folder `build` onto the page to install the extension
+
+## Build
 
 `yarn install` and `npm run build`
 
-## Install Stable Release
+## Install stable release
 
-[Chrome Extension Store](https://chrome.google.com/webstore/detail/bphdkmejkbcfcglcgmmbmjggafkgfjcm) <!-- TODO: Add chrome extension link inside parenthesis -->
+[Chrome Extension Store](https://chrome.google.com/webstore/detail/bphdkmejkbcfcglcgmmbmjggafkgfjcm)
