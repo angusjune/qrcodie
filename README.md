@@ -5,12 +5,12 @@ An elegant Chrome extension to generate QR Codes
 
 ## Develope Your Own
 
-run `npm run watch`
+`npm run watch`
 
 ## Build Your Own
 
-run `npm run build`
+`yarn install` and `npm run build`
 
 ## Install Stable Release
 
-[**Chrome** extension]() <!-- TODO: Add chrome extension link inside parenthesis -->
+[Chrome Extension Store](https://chrome.google.com/webstore/detail/bphdkmejkbcfcglcgmmbmjggafkgfjcm) <!-- TODO: Add chrome extension link inside parenthesis -->
