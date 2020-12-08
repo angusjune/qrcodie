@@ -59,5 +59,5 @@ dlCodeStyleRadios.forEach(item => {
 
 // i18n
 document.querySelectorAll('[data-msg]').forEach(item => {
-    item.innerText = chrome.i18n.getMessage(item.dataset.msg);
+    item.textContent = chrome.i18n.getMessage(item.dataset.msg);
 })
