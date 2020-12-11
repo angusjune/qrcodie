@@ -1,6 +1,6 @@
 'use strict';
 
-const isBrowserDark  = window.matchMedia("(prefers-color-scheme: dark)") || chrome.extension.inIncognitoContext;
+const isBrowserDark  = window.matchMedia("(prefers-color-scheme: dark)").matches || chrome.extension.inIncognitoContext;
 
 if (isBrowserDark) {
     // set light-colored icon in dark UI
@@ -14,4 +14,4 @@ chrome.runtime.onMessage.addListener(message => {
         chrome.browserAction.setIcon({ path: `icons/icon-32.png`});
     }
     console.log(message);
-})
+});
