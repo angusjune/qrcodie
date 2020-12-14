@@ -1,6 +1,6 @@
 {
   "ext_name": {
-    "message": "QRCodie"
+    "message": "QRCodie: the QR Code generator"
   },
   "ext_desc": {
     "message": "A neat and beautiful QR Code generator."
