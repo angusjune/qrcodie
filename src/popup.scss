@@ -62,6 +62,7 @@ body, body.light {
     text-overflow: ellipsis;
 
     &:focus {
+        background: var(--bg);
         color: var(--textfield-text-focus);
         text-overflow: clip;
         outline: none;
