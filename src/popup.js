@@ -12,8 +12,21 @@ const $btnPaste = document.querySelector('#btnPaste');
 const $btnClear = document.querySelector('#btnClear');
 
 const isBrowserDark = window.matchMedia('(prefers-color-scheme: dark)').matches || chrome.extension.inIncognitoContext;
-
 chrome.runtime.sendMessage({ isBrowserDark: isBrowserDark });
+
+if (isBrowserDark) {
+  chrome.action.setIcon({ path: {
+      16: 'icons/icon-light-16.png',
+      24: 'icons/icon-light-24.png',
+      32: 'icons/icon-light-16.png'
+  }});
+} else {
+  chrome.action.setIcon({ path: {
+      16: 'icons/icon-16.png',
+      24: 'icons/icon-24.png',
+      32: 'icons/icon-16.png'
+  }});
+}
 
 // Initial content of the qr code
 let initContent = '';
@@ -22,7 +35,7 @@ let initContent = '';
 let displayInput = true;
 let dlAsSvg = false;
 let dpCodeStyle = 'auto';
-let dlCodeStyle = 'light'
+let dlCodeStyle = 'light';
 
 // Get preferences from storage
 chrome.storage.sync.get({
