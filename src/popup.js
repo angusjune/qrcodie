@@ -12,7 +12,6 @@ const $btnPaste = document.querySelector('#btnPaste');
 const $btnClear = document.querySelector('#btnClear');
 
 const isBrowserDark = window.matchMedia('(prefers-color-scheme: dark)').matches || chrome.extension.inIncognitoContext;
-chrome.runtime.sendMessage({ isBrowserDark: isBrowserDark });
 
 if (isBrowserDark) {
   chrome.action.setIcon({ path: {
