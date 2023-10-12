@@ -22,6 +22,7 @@ body, body.light {
     flex-direction: column;
     text-align: center;
     padding: 35px 35px 25px;
+    min-width: 250px;
 
     body.remove-textfield & {
         padding: 20px;
