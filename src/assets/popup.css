@@ -1,0 +1,43 @@
+@import './transitions.css';
+
+:root {
+    --grey-100: #f1f3f4;
+    --grey-200: #e8eaed;
+    --grey-300: #dadce0;
+    --grey-400: #bdc1c6;
+    --grey-500: #9aa0a6;
+    --grey-600: #80868b;
+    --grey-700: #5f6368;
+    --grey-800: #3c4043;
+    --grey-900: #202124;
+
+    --spacing-1: 4px;
+    --spacing-2: 8px;
+    --spacing-3: 16px;
+    --spacing-4: 32px;
+
+    @extend %light;
+}
+
+%light {
+    --surface: #fff;
+    --surface-invert: var(--grey-800);
+    --surface-invert-rgb: 60, 64, 67;
+    --on-theme-primary: var(--grey-100);
+    --on-surface-primary: var(--grey-900);
+    --on-surface-primary-rgb: 32, 33, 36;
+    --on-surface-primary-invert: var(--grey-100);
+    --on-surface-secondary: var(--grey-700);
+    --on-surface-secondary-rgb: 95, 99, 104;
+    --on-surface-tertiary: var(--grey-400);
+
+    --textfield-background: rgb(241 243 244 / 0.85);
+}
+
+html {
+    width: 340px;
+}
+
+body {
+    margin: 0;
+}
