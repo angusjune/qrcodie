@@ -90,36 +90,5 @@ chrome.runtime.onMessage.addListener(({ type, data }, sender, sendResponse) => {
 
 // adding contextmenu on install
 chrome.runtime.onInstalled.addListener(() => {
-    chrome.contextMenus.create({
-        contexts: ['page'],
-        title: msg('generate_code'),
-        id: 'generateQRCode'
-    });
-    chrome.contextMenus.create({
-        contexts: ['action'],
-        /** @ts-ignore */
-        title: 'open in tab',
-        id: 'openInTab'
-    });
-
     setIcon();
-});
-  
-chrome.contextMenus.onClicked.addListener(({ menuItemId }, tab) => {
-    switch(menuItemId) {
-        case 'generateQRCode':
-            chrome.tabs.create({ url: chrome.runtime.getURL('popup.html') });
-            break;
-        case 'openInTab':
-            /** @ts-ignore */
-            if (chrome.sidePanel) {
-                /** @ts-ignore */
-                chrome.sidePanel.open({ windowId: tab?.windowId})
-            } else {
-                chrome.tabs.create({ url: chrome.runtime.getURL('popup.html') });
-            }
-            break;
-        default:
-            break;
-    }
 });
