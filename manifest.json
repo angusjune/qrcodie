@@ -23,8 +23,7 @@
   "permissions": [
     "storage",
     "activeTab",
-    "clipboardRead",
-    "contextMenus"
+    "clipboardRead"
   ],
   "default_locale": "en",
   "minimum_chrome_version": "88"
