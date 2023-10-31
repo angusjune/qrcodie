@@ -4,31 +4,31 @@
   "description": "a chrome extension to generate QR codes",
   "private": true,
   "scripts": {
-    "watch": "webpack --mode=development --watch --config config/webpack.config.js",
-    "build": "webpack --mode=production --config config/webpack.config.js"
+    "dev": "vite",
+    "build": "tsc && vite build"
   },
   "devDependencies": {
-    "copy-webpack-plugin": "^6.3.2",
-    "css-loader": "^4.3.0",
-    "file-loader": "^6.2.0",
-    "mini-css-extract-plugin": "^0.10.1",
-    "sass": "^1.29.0",
-    "sass-loader": "^10.1.0",
-    "size-plugin": "^2.0.1",
-    "webpack": "^5.88.2",
-    "webpack-cli": "^3.3.12",
-    "webpack-merge": "^5.4.0"
+    "@crxjs/vite-plugin": "^1.0.14",
+    "@iconify-json/fluent-emoji": "^1.1.14",
+    "@iconify-json/material-symbols": "^1.1.59",
+    "@types/chrome": "^0.0.246",
+    "@types/lodash.debounce": "^4.0.8",
+    "@types/node": "^20.8.4",
+    "@types/qrcode-svg": "^1.1.2",
+    "@vitejs/plugin-vue": "^4.4.0",
+    "@vue/compiler-sfc": "^3.3.4",
+    "postcss": "^8.4.31",
+    "postcss-extend-rule": "^4.0.0",
+    "postcss-nested": "^6.0.1",
+    "typescript": "^5.2.2",
+    "vite": "^4.5.0"
   },
   "dependencies": {
-    "@material/card": "^8.0.0",
-    "@material/form-field": "^8.0.0",
-    "@material/list": "^8.0.0",
-    "@material/radio": "^8.0.0",
-    "@material/switch": "^8.0.0",
-    "@material/theme": "^8.0.0",
-    "@material/typography": "^8.0.0",
-    "canvg": "^3.0.7",
-    "mini-svg-data-uri": "^1.2.3",
-    "qrcode-svg": "^1.1.0"
+    "canvg": "^4.0.1",
+    "lodash.debounce": "^4.0.8",
+    "mini-svg-data-uri": "^1.4.4",
+    "qrcode-svg": "^1.1.0",
+    "unplugin-icons": "^0.17.0",
+    "vue": "^3.3.4"
   }
 }

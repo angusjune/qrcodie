@@ -1,0 +1,6 @@
+@import './kroma.css';
+
+body {
+    margin: 0;
+    background: var(--kr-background);
+}

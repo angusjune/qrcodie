@@ -5,7 +5,7 @@
   "ext_desc": {
     "message": "简单，漂亮的二维码生成器"
   },
-  "ext_title": {
+  "generate_code": {
     "message": "生成当前页面二维码"
   },
 
@@ -17,16 +17,120 @@
     "message": "清除"
   },
 
+  "reset": {
+    "message": "重置"
+  },
+
   "popup": {
     "message": "弹出窗"
+  },
+
+  "show_action": {
+    "message": "显示主题更换按钮"
   },
 
   "show_input": {
     "message": "显示输入框"
   },
 
-  "show_input_desc": {
-    "message": "二维码下方的输入框"
+  "simple_ui": {
+    "message": "简易界面"
+  },
+
+  "popup_style": {
+    "message": "弹窗样式"
+  },
+
+  "color": {
+    "message": "颜色"
+  },
+
+  "white": {
+    "message": "白"
+  },
+
+  "orange": {
+    "message": "橙"
+  },
+
+  "green": {
+    "message": "绿"
+  },
+
+  "blue": {
+    "message": "蓝"
+  },
+
+  "purple": {
+    "message": "紫"
+  },
+
+  "pink": {
+    "message": "粉"
+  },
+
+  "emoji": {
+    "message": "Emoji"
+  },
+
+  "pizza": {
+    "message": "比萨"
+  },
+
+  "heart": {
+    "message": "心"
+  },
+
+  "goofy": {
+    "message": "搞怪脸"
+  },
+
+  "smile": {
+    "message": "微笑脸"
+  },
+
+  "star": {
+    "message": "星星"
+  },
+
+  "confetti": {
+    "message": "礼花"
+  },
+
+  "love": {
+    "message": "爱的手势"
+  },
+
+  "rainbow": {
+    "message": "彩虹"
+  },
+
+  "qr_code_size": {
+    "message": "二维码尺寸"
+  },
+
+  "icon": {
+    "message": "图标"
+  },
+
+  "icon_style": {
+    "message": "样式"
+  },
+
+  "enable_click_to_change_bg": {
+    "message": "点击弹窗背景来更换样式"
+  },
+
+  "solid": {
+    "message": "实心"
+  },
+
+  "outline": {
+    "message": "描边"
+  },
+
+  "icon_color": {
+    "message": "颜色"
   },
 
   "appearance": {
@@ -45,12 +149,25 @@
     "message": "暗色"
   },
 
+
+  "yellow": {
+    "message": "黄"
+  },
+
+  "custom": {
+    "message": "自定义"
+  },
+
+  "icon_custom_color": {
+    "message": "自定义颜色"
+  },
+
   "download": {
     "message": "下载"
   },
 
-  "download_desc": {
-    "message": "你可通过单击来下载当前二维码"
+  "enable_download": {
+    "message": "单击二维码来下载"
   },
 
   "download_as_svg": {

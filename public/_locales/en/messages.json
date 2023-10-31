@@ -3,9 +3,9 @@
     "message": "QRCodie - QR Code Generator"
   },
   "ext_desc": {
-    "message": "A neat and beautiful QR Code generator."
+    "message": "A simple QR Code generator."
   },
-  "ext_title": {
+  "generate_code": {
     "message": "Generate QR Code"
   },
 
@@ -17,20 +17,120 @@
     "message": "Clear"
   },
 
+  "reset": {
+    "message": "Reset"
+  },
+
   "popup": {
     "message": "Popup"
+  },
+
+  "show_action": {
+    "message": "Show theme switch button"
   },
 
   "show_input": {
     "message": "Show textbox"
   },
 
-  "show_input_desc": {
-    "message": "The textbox beneath the QR code"
+  "simple_ui": {
+    "message": "Minimalist UI"
   },
 
-  "appearance": {
-    "message": "Appearance"
+  "popup_style": {
+    "message": "Popup style"
+  },
+
+  "color": {
+    "message": "Color"
+  },
+
+  "white": {
+    "message": "White"
+  },
+
+  "orange": {
+    "message": "Orange"
+  },
+
+  "green": {
+    "message": "Green"
+  },
+
+  "blue": {
+    "message": "Blue"
+  },
+
+  "purple": {
+    "message": "Purple"
+  },
+
+  "pink": {
+    "message": "Pink"
+  },
+
+  "emoji": {
+    "message": "Emoji"
+  },
+
+  "pizza": {
+    "message": "Pizza"
+  },
+
+  "heart": {
+    "message": "Heart"
+  },
+
+  "goofy": {
+    "message": "Goofy Face"
+  },
+
+  "smile": {
+    "message": "Smile Face"
+  },
+
+  "star": {
+    "message": "Star"
+  },
+
+  "confetti": {
+    "message": "Party Popper"
+  },
+
+  "love": {
+    "message": "Love Hand Gesture"
+  },
+
+  "rainbow": {
+    "message": "Rainbow"
+  },
+
+  "qr_code_size": {
+    "message": "QR Code size"
+  },
+
+  "icon": {
+    "message": "Icon"
+  },
+
+  "icon_style": {
+    "message": "Style"
+  },
+
+  "enable_click_to_change_bg": {
+    "message": "Click popup background to change style"
+  },
+
+  "solid": {
+    "message": "Solid"
+  },
+
+  "outline": {
+    "message": "Outline"
+  },
+
+  "icon_color": {
+    "message": "Color"
   },
 
   "auto": {
@@ -45,12 +145,28 @@
     "message": "Dark"
   },
 
+  "yellow": {
+    "message": "Yellow"
+  },
+
+  "custom": {
+    "message": "Custom"
+  },
+
+  "icon_custom_color": {
+    "message": "Custom color"
+  },
+
   "download": {
     "message": "Download"
   },
 
   "download_desc": {
     "message": "You can download the QR Code by clicking"
+  },
+
+  "enable_download": {
+    "message": "Click the QR Code to download as image"
   },
 
   "download_as_svg": {

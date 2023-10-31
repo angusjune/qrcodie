@@ -1,0 +1,180 @@
+{
+    "ext_name": {
+      "message": "QRCodie - QR Code 生成器"
+    },
+    "ext_desc": {
+      "message": "簡單，漂亮的 QR Code 生成器"
+    },
+    "generate_code": {
+      "message": "生成目前頁面 QR Code"
+    },
+  
+    "paste": {
+      "message": "貼上"
+    },
+  
+    "clear": {
+      "message": "清除"
+    },
+  
+    "reset": {
+      "message": "重設"
+    },
+  
+    "popup": {
+      "message": "彈出窗"
+    },
+  
+    "show_action": {
+      "message": "顯示主題更換按鈕"
+    },
+  
+    "show_input": {
+      "message": "顯示輸入框"
+    },
+  
+    "simple_ui": {
+      "message": "簡易介面"
+    },
+  
+    "popup_style": {
+      "message": "彈出式視窗樣式"
+    },
+  
+    "color": {
+      "message": "顏色"
+    },
+  
+    "white": {
+      "message": "白"
+    },
+  
+    "orange": {
+      "message": "橙"
+    },
+  
+    "green": {
+      "message": "綠"
+    },
+  
+    "blue": {
+      "message": "藍"
+    },
+  
+    "purple": {
+      "message": "紫"
+    },
+  
+    "pink": {
+      "message": "粉"
+    },
+  
+    "emoji": {
+      "message": "Emoji"
+    },
+  
+    "pizza": {
+      "message": "披薩"
+    },
+  
+    "heart": {
+      "message": "心"
+    },
+  
+    "goofy": {
+      "message": "搞怪臉"
+    },
+  
+    "smile": {
+      "message": "微笑臉"
+    },
+  
+    "star": {
+      "message": "星星"
+    },
+  
+    "confetti": {
+      "message": "禮花"
+    },
+  
+    "love": {
+      "message": "愛的手勢"
+    },
+  
+    "rainbow": {
+      "message": "彩虹"
+    },
+  
+    "qr_code_size": {
+      "message": " QR Code 尺寸"
+    },
+  
+    "icon": {
+      "message": "圖示"
+    },
+  
+    "icon_style": {
+      "message": "樣式"
+    },
+  
+    "enable_click_to_change_bg": {
+      "message": "點擊彈出式視窗背景來更換樣式"
+    },
+  
+    "solid": {
+      "message": "實心"
+    },
+  
+    "outline": {
+      "message": "描邊"
+    },
+  
+    "icon_color": {
+      "message": "顏色"
+    },
+  
+    "appearance": {
+      "message": "外觀"
+    },
+  
+    "auto": {
+      "message": "自動"
+    },
+  
+    "light": {
+      "message": "淺色"
+    },
+  
+    "dark": {
+      "message": "暗色"
+    },
+  
+  
+    "yellow": {
+      "message": "黃"
+    },
+  
+    "custom": {
+      "message": "自訂"
+    },
+  
+    "icon_custom_color": {
+      "message": "自訂顏色"
+    },
+  
+    "download": {
+      "message": "下載"
+    },
+  
+    "enable_download": {
+      "message": "單擊 QR Code 來下載"
+    },
+  
+    "download_as_svg": {
+      "message": "以 svg 格式下載"
+    },
+  
+    "style": {
+      "message": "下載的 QR Code 樣式"
+    }
+  }

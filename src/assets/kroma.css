@@ -1,0 +1,102 @@
+:root, [data-color-scheme="auto"] {
+    --grey-100: #f1f3f4;
+    --grey-200: #e8eaed;
+    --grey-300: #dadce0;
+    --grey-400: #bdc1c6;
+    --grey-500: #9aa0a6;
+    --grey-600: #80868b;
+    --grey-700: #5f6368;
+    --grey-800: #3c4043;
+    --grey-900: #202124;
+
+    --blue-300: #8ab4f8;
+    --blue-300-rgb: 138, 180, 248;
+    --blue-500: #4285ff;
+    --blue-500-rgb: 66, 133, 255;
+    --blue-600: #1a73e8;
+    --blue-600-rgb: 26, 115, 232;
+
+    --red-400: #b3261e;
+
+    --spacing-1: 4px;
+    --spacing-2: 8px;
+    --spacing-3: 16px;
+    --spacing-4: 32px;
+
+    @extend %light;
+}
+
+[data-color-scheme="light"] {
+    @extend %light;
+}
+
+%light {
+    --kr-theme: var(--blue-600);
+    --kr-theme-rgb: var(--blue-600-rgb);
+    --kr-theme-secondary: var(--blue-300);
+    --kr-background: #f8f9fa;
+    --kr-surface: #fff;
+    --kr-surface-invert: var(--grey-800);
+    --kr-text-primary-color: var(--grey-900);
+    --kr-text-primary-color-invert: var(--grey-100);
+    --kr-text-secondary-color: var(--grey-700);
+    --kr-text-secondary-color-rgb: 95, 99, 104;
+    --kr-text-tertiary-color: var(--grey-400);
+    --kr-error: var(--red-400);
+    --kr-ripple: rgba(var(--kr-theme-rgb), 0.2);
+    --kr-separator: rgba(0, 0, 0, 0.08);
+
+    --kr-textfield-background: var(--grey-100);
+    --kr-textfield-border: var(--grey-300);
+
+    --kr-button-primary-hover-background: rgba(var(--kr-theme-rgb), 0.9);
+    --kr-button-primary-active-box-shadow-rgb: var(--kr-theme-rgb);
+    --kr-button-secondary-hover-background: rgba(var(--kr-theme-rgb), 0.04);
+    --kr-button-secondary-border-color: var(--grey-300);
+
+    --kr-switch-track-background-unchecked: var(--grey-400);
+    --kr-switch-thumb-background-unchecked: var(--grey-100);
+
+    --kr-switch-track-background-checked: var(--blue-300);
+    --kr-switch-thumb-background-checked: var(--blue-600);
+}
+
+%dark {
+    --kr-theme: var(--blue-300);
+    --kr-theme-rgb: var(--blue-300-rgb);
+    --kr-theme-secondary: var(--blue-600);
+    --kr-background: #202224;
+    --kr-surface: #292a2d;
+    --kr-surface-invert: var(--grey-100);
+    --kr-text-primary-color: var(--grey-100);
+    --kr-text-primary-color-invert: var(--grey-900);
+    --kr-text-secondary-color: var(--grey-500);
+    --kr-text-secondary-color-rgb: 154, 160, 166;
+    --kr-text-tertiary-color: var(--grey-700);
+    --kr-ripple: rgba(var(--kr-theme-rgb), 0.4);
+    --kr-separator: rgba(255, 255, 255, .1);
+
+    --kr-textfield-background: var(--grey-800);
+    --kr-textfield-border: var(--grey-700);
+
+    --kr-button-primary-hover-background: rgba(var(--kr-theme-rgb), 0.9);
+    --kr-button-primary-active-box-shadow-rgb: var(--kr-theme-rgb);
+    --kr-button-secondary-hover-background: rgba(var(--kr-theme-rgb), 0.04);
+    --kr-button-secondary-border-color: var(--grey-700);
+
+    --kr-switch-track-background-unchecked: var(--grey-500);
+    --kr-switch-thumb-background-unchecked: var(--grey-100);
+
+    --kr-switch-track-background-checked: var(--blue-300);
+    --kr-switch-thumb-background-checked: var(--blue-300);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root, [data-color-scheme="auto"] {
+        @extend %dark;
+    }
+}
+
+[data-color-scheme="dark"] {
+    @extend %dark;
+}
