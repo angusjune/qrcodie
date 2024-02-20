@@ -107,6 +107,8 @@ const inputValue = computed<string>({
 // color of the qr code
 const codeColor = computed<string>(() => (options.value.popupStyle === 'color' && !options.value.simpleUi) ? (codeColors[options.value.color] ?? codeColors.white) : codeColors.white )
 
+const switchButtonLight = computed<boolean>(() => options.value.popupStyle === 'color' && !options.value.simpleUi && options.value.color === 'dark')
+
 // generates new code when content or color changes
 watch([codeContent, codeColor], ([newContent, newCodeColor]) => {
     newContent && generateCode(newContent)
@@ -166,7 +168,7 @@ const codeCardProps = computed(() => {
         </div>
 
         <section v-if="options.displayAction && !options.simpleUi" class="actions">
-            <QcSwitchButton :items="popupThemes" v-model="options.popupStyle" />
+            <QcSwitchButton :items="popupThemes" v-model="options.popupStyle" :light="switchButtonLight" />
         </section>
 
         <section class="content">

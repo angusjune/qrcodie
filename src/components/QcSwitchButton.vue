@@ -4,6 +4,7 @@ import { computed } from 'vue'
 const props = defineProps<{
     items: { label: string, value: string }[],
     modelValue?: string,
+    light?: boolean,
 }>()
 
 const emit = defineEmits<{
@@ -23,7 +24,7 @@ function selectNext() {
 </script>
 
 <template>
-    <button class="switch-button" @click="selectNext">
+    <button class="switch-button" :class="{'switch-button--light': light}" @click="selectNext">
         <TransitionGroup name="slide-in-out-up">
             <span class="switch-button__inner" v-for="item in items" :key="item.value" v-show="value === item.value">{{ item.label }}</span>
         </TransitionGroup>
@@ -58,6 +59,17 @@ function selectNext() {
     &:focus-visible {
         outline-width: 2px;
         outline-offset: 2px;
+    }
+
+    &--light {
+        color: rgba(var(--on-surface-primary-invert-rgb), .9);
+        border-color: rgba(var(--on-surface-primary-invert-rgb), .9);
+        outline-color: rgba(var(--on-surface-primary-invert-rgb), .9);
+
+        &:hover, &:focus-visible {
+            background: rgba(var(--on-surface-primary-invert-rgb), .9);
+            color: var(--on-surface-primary);
+        }
     }
 
     &__inner {
