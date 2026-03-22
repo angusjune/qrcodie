@@ -23,8 +23,9 @@
   "permissions": [
     "storage",
     "activeTab",
-    "clipboardRead"
+    "clipboardRead",
+    "offscreen"
   ],
   "default_locale": "en",
-  "minimum_chrome_version": "88"
+  "minimum_chrome_version": "109"
 }

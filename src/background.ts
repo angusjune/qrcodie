@@ -33,6 +33,21 @@ chrome.storage.local.get({
     colorSchemeStored.value = items.colorScheme;
 });
 
+async function ensureOffscreenDocument() {
+    const contexts = await chrome.runtime.getContexts({
+        contextTypes: [chrome.runtime.ContextType.OFFSCREEN_DOCUMENT],
+    });
+    if (contexts.length === 0) {
+        await chrome.offscreen.createDocument({
+            url: 'offscreen.html',
+            reasons: [chrome.offscreen.Reason.MATCH_MEDIA],
+            justification: 'Detect system color scheme changes to update the action icon',
+        });
+    }
+}
+
+ensureOffscreenDocument();
+
 function setIcon() {
     const color = optionsStored.value.iconColor;
     let c = '';
@@ -91,4 +106,5 @@ chrome.runtime.onMessage.addListener(({ type, data }, sender, sendResponse) => {
 // adding contextmenu on install
 chrome.runtime.onInstalled.addListener(() => {
     setIcon();
+    ensureOffscreenDocument();
 });

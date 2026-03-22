@@ -47,10 +47,6 @@ onMounted(async () => {
     // get current tab url
     const tab = await getCurrentTab()
     currentUrl.value = tab?.url
-
-    // set color scheme
-    const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    chrome.runtime.sendMessage({ type: 'SET_COLOR_SCHEME', data: { colorScheme: isDark ? 'dark' : 'light' } })
 })
 
 // get info of the current tab
