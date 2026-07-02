@@ -1,6 +1,6 @@
 {
   "name": "qrcodie",
-  "version": "0.9.9",
+  "version": "1.0.0",
   "description": "a chrome extension to generate QR codes",
   "private": true,
   "scripts": {
@@ -28,7 +28,8 @@
     "lodash.debounce": "^4.0.8",
     "mini-svg-data-uri": "^1.4.4",
     "qrcode-svg": "^1.1.0",
-    "unplugin-icons": "^0.17.0",
+    "unplugin-icons": "^0.18.5",
     "vue": "^3.3.4"
-  }
+  },
+  "packageManager": "yarn@4.15.0"
 }
