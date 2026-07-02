@@ -13,10 +13,6 @@
       "message": "貼上"
     },
   
-    "clear": {
-      "message": "清除"
-    },
-  
     "reset": {
       "message": "重設"
     },
@@ -133,11 +129,7 @@
       "message": "顏色"
     },
   
-    "appearance": {
-      "message": "外觀"
-    },
-  
-    "auto": {
+"auto": {
       "message": "自動"
     },
   
@@ -174,7 +166,7 @@
       "message": "以 svg 格式下載"
     },
   
-    "style": {
-      "message": "下載的 QR Code 樣式"
+    "download_qr_code": {
+      "message": "下載 QR Code"
     }
   }

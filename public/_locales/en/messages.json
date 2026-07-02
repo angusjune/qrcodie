@@ -13,10 +13,6 @@
     "message": "Paste"
   },
 
-  "clear": {
-    "message": "Clear"
-  },
-
   "reset": {
     "message": "Reset"
   },
@@ -161,10 +157,6 @@
     "message": "Download"
   },
 
-  "download_desc": {
-    "message": "You can download the QR Code by clicking"
-  },
-
   "enable_download": {
     "message": "Click the QR Code to download as image"
   },
@@ -173,7 +165,7 @@
     "message": "Download as .svg"
   },
 
-  "style": {
-    "message": "Style"
+  "download_qr_code": {
+    "message": "Download the QR code"
   }
 }
