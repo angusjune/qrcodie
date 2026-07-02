@@ -17,17 +17,18 @@ import Confetti from '~icons/fluent-emoji/party-popper'
 import Love from '~icons/fluent-emoji/love-you-gesture'
 import Rainbow from '~icons/fluent-emoji/rainbow'
 import { getIcon, colors as actionIconColors } from './action-icon'
+import { getOptions, setOptions } from '@/utils/options'
 
 const options = ref<UserOptions>({} as UserOptions)
 
 onMounted(() => {
-    chrome.runtime.sendMessage({type: 'GET_OPTIONS'}, (res) => {
-        options.value = res
+    getOptions(items => {
+        options.value = items
     })
 })
 
 watch(options, debounce((val) => {
-    chrome.runtime.sendMessage({ type: "SET_OPTIONS", data: val })
+    setOptions(val)
 }, 300), { deep: true })
 
 interface OptionItem {

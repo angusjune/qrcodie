@@ -9,6 +9,7 @@ import QcCodeCard from './components/QcCodeCard.vue'
 import QcPattern from './components/QcPattern.vue'
 import QcSwitchButton from './components/QcSwitchButton.vue'
 import { msg } from '@/utils/i18n'
+import { getOptions, setOptions } from '@/utils/options'
 
 const options = ref<UserOptions>({} as UserOptions)
 
@@ -34,13 +35,13 @@ const emojis: UserOptions['emoji'][] = ['pizza', 'heart', 'goofy', 'smile', 'sta
 const colors: UserOptions['color'][] = ['white', 'dark', 'green', 'blue', 'purple', 'pink']
 
 // get options
-chrome.runtime.sendMessage({ type: 'GET_OPTIONS' }, (response) => {
-  options.value = response
+getOptions(items => {
+    options.value = items
 })
 
 // set options
 watch(options, debounce(val => {
-    chrome.runtime.sendMessage({ type: 'SET_OPTIONS', data: val })
+    setOptions(val)
 }, 300), { deep: true })
 
 onMounted(async () => {
@@ -50,7 +51,7 @@ onMounted(async () => {
 
     // set color scheme
     const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    chrome.runtime.sendMessage({ type: 'SET_COLOR_SCHEME', data: { colorScheme: isDark ? 'dark' : 'light' } })
+    chrome.storage.local.set({ colorScheme: isDark ? 'dark' : 'light' })
 })
 
 // get info of the current tab
@@ -101,7 +102,7 @@ const codeContent = computed<string>(() => {
 
 const inputValue = computed<string>({
     get: () => customContent.value ? customContent.value : currentUrl.value ?? '',
-    set: (value) => customContent.value = value 
+    set: (value) => customContent.value = value
 })
 
 // color of the qr code
@@ -110,7 +111,7 @@ const codeColor = computed<string>(() => (options.value.popupStyle === 'color' &
 const switchButtonLight = computed<boolean>(() => options.value.popupStyle === 'color' && !options.value.simpleUi && options.value.color === 'dark')
 
 // generates new code when content or color changes
-watch([codeContent, codeColor], ([newContent, newCodeColor]) => {
+watch([codeContent, codeColor], ([newContent]) => {
     newContent && generateCode(newContent)
 })
 
@@ -149,8 +150,8 @@ function clickBg() {
 
 const codeCardProps = computed(() => {
     return {
-        ... (options.value.enableDownload && qrCodeToExport.value) ? 
-        { 
+        ... (options.value.enableDownload && qrCodeToExport.value) ?
+        {
             download: options.value.dlAsSvg ? 'qr-code.svg' : 'qr-code@2x.png',
             href: options.value.dlAsSvg ? SvgToMiniDataURI(qrCodeToExport.value) : canvas.value.toDataURL('image/png'),
             role: 'button',

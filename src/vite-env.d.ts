@@ -1,10 +1,14 @@
 /// <reference types="vite/client" />
-/// <reference types="vite-svg-loader" />
 
 declare module '*.vue' {
     import type { DefineComponent } from 'vue'
     const component: DefineComponent<{}, {}, any>
     export default component
+}
+
+declare module '~icons/*?raw' {
+    const svg: string
+    export default svg
 }
 
 interface UserOptions {
@@ -16,10 +20,6 @@ interface UserOptions {
     dlAsSvg: boolean;
     /** allow click to download */
     enableDownload: boolean;
-    /** display qr code style */
-    // dpCodeStyle: 'auto' | 'dark' | 'light';
-    /** downloaded qr code style */
-    // dlCodeStyle: 'auto' | 'dark' | 'light';
     /** popup background style */
     popupStyle: 'emoji' | 'color';
     /** qr code color */

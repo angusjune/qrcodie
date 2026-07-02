@@ -1,25 +1,10 @@
 import { ref } from 'vue'
 import { getIconDictionary, colors } from '@/action-icon'
 import { msg } from '@/utils/i18n'
+import { defaultOptions } from '@/utils/options'
 
 const optionsStored     = ref<UserOptions>({} as UserOptions);
 const colorSchemeStored = ref<ColorScheme>('light');
-
-const defaultOptions: UserOptions = {
-    displayInput: true,
-    displayAction: true,
-    dlAsSvg: false,
-    enableDownload: true,
-    popupStyle: 'emoji',
-    color: 'white',
-    emoji: 'pizza',
-    enableClickToChangeBg: true,
-    qrCodeSize: 170,
-    iconStyle: 'solid',
-    iconColor: 'auto',
-    iconCustomColor: '#444444',
-    simpleUi: false,
-};
 
 // get options
 chrome.storage.sync.get(defaultOptions, (items) => {
@@ -65,30 +50,37 @@ chrome.storage.onChanged.addListener((changes, areaName) => {
     setIcon();
 });
 
-chrome.runtime.onMessage.addListener(({ type, data }, sender, sendResponse) => {
-    switch (type) {
-        case 'GET_OPTIONS':
-            sendResponse(optionsStored.value);
-            break;
-        case 'SET_OPTIONS':
-            chrome.storage.sync.set(data, () => {
-                optionsStored.value = {
-                    ...optionsStored.value,
-                    ...data,
-                } as UserOptions;
-            });
-            break;
-        case 'SET_COLOR_SCHEME':
-            chrome.storage.local.set({ colorScheme: data.colorScheme }, () => {
-                colorSchemeStored.value = data.colorScheme;
-            });
+// context menus
+chrome.contextMenus.onClicked.addListener(({ menuItemId }, tab) => {
+    switch(menuItemId) {
+        case 'generateQrCode':
+            qrCodePopupWindow();
             break;
         default:
             break;
     }
 });
 
-// adding contextmenu on install
+function qrCodePopupWindow() {
+    chrome.windows.create({
+        url: 'popup.html',
+        type: 'popup',
+        width: 340,
+        height: 450,
+    });
+}
+
 chrome.runtime.onInstalled.addListener(() => {
+    setIcon();
+    // adding contextmenu on install
+    chrome.contextMenus.create({
+        contexts: ['page'],
+        /** @ts-ignore */
+        title: msg('generate_code'),
+        id: 'generateQrCode'
+    });
+});
+
+chrome.runtime.onStartup.addListener(() => {
     setIcon();
 });
