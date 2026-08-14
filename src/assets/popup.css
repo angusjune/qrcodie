@@ -27,6 +27,7 @@
     --on-surface-primary: var(--grey-900);
     --on-surface-primary-rgb: 32, 33, 36;
     --on-surface-primary-invert: var(--grey-100);
+    --on-surface-primary-invert-rgb: 241, 243, 244;
     --on-surface-secondary: var(--grey-700);
     --on-surface-secondary-rgb: 95, 99, 104;
     --on-surface-tertiary: var(--grey-400);
@@ -34,10 +35,14 @@
     --textfield-background: rgb(241 243 244 / 0.85);
 }
 
-html {
-    width: 340px;
-}
-
 body {
     margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#app {
+    width: 340px;
 }

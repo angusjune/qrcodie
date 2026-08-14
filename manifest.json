@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "__MSG_ext_name__",
   "short_name": "QRCodie",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "__MSG_ext_desc__",
   "icons": {
     "48": "icons/icon-48.png",
@@ -24,8 +24,8 @@
     "storage",
     "activeTab",
     "clipboardRead",
-    "offscreen"
+    "contextMenus"
   ],
   "default_locale": "en",
-  "minimum_chrome_version": "109"
+  "minimum_chrome_version": "123"
 }

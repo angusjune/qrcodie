@@ -1,13 +1,14 @@
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
-import Pizza from '~icons/fluent-emoji/pizza'
-import Heart from '~icons/fluent-emoji/sparkling-heart'
-import Goofy from '~icons/fluent-emoji/zany-face'
-import Smile from '~icons/fluent-emoji/slightly-smiling-face'
-import Star from '~icons/fluent-emoji/star'
-import Confetti from '~icons/fluent-emoji/party-popper'
-import Love from '~icons/fluent-emoji/love-you-gesture'
-import Rainbow from '~icons/fluent-emoji/rainbow'
+import { computed } from 'vue'
+import SvgToMiniDataURI from 'mini-svg-data-uri'
+import pizza from '@/icons/pizza.svg?raw'
+import heart from '~icons/fluent-emoji/sparkling-heart?raw'
+import goofy from '~icons/fluent-emoji/zany-face?raw'
+import smile from '~icons/fluent-emoji/slightly-smiling-face?raw'
+import star from '~icons/fluent-emoji/star?raw'
+import confetti from '~icons/fluent-emoji/party-popper?raw'
+import love from '~icons/fluent-emoji/love-you-gesture?raw'
+import rainbow from '~icons/fluent-emoji/rainbow?raw'
 
 const props = withDefaults(defineProps<{
     type?: UserOptions['popupStyle']
@@ -29,19 +30,16 @@ const bgColors: Record<UserOptions['color'], string> = {
     pink: 'linear-gradient( 135deg, #FFD3A5 10%, #FD6585 100%)',
 }
 
-
-const icon = computed(() => {
-    switch(props.emoji) {
-        case 'heart': return Heart
-        case 'goofy': return Goofy
-        case 'smile': return Smile
-        case 'star': return Star
-        case 'confetti': return Confetti
-        case 'love': return Love
-        case 'rainbow': return Rainbow
-        default: return Pizza
-    }
-})
+const icons: Record<UserOptions['emoji'], string> = {
+    pizza,
+    heart,
+    goofy,
+    smile,
+    star,
+    confetti,
+    love,
+    rainbow,
+}
 
 const background = computed<string>(() => props.type === 'color' ? (bgColors[props.color] ?? bgColors.white) : bgColors.white )
 
@@ -52,17 +50,47 @@ function getRandomItem(array: any[]) {
     return array[randomIndex];
 }
 
-const rowCount = ref(4)
-const colCount = ref(4)
+// pattern geometry: emojis repeat every 2.2x their size, with every
+// other row shifted sideways by a third of the emoji size
+const emojiSize = 60
+const pitch = emojiSize * 2.2
+const tileSize = pitch * 2
+const rowShift = (emojiSize / 3) * 2
+const rowTop = emojiSize * 0.6
+
+// place one icon inside the tile, rotated around its own center
+function placeIcon(rawSvg: string, x: number, y: number, rotate: number) {
+    const openTagEnd = rawSvg.indexOf('>')
+    const openTag = rawSvg.slice(0, openTagEnd)
+        .replace(/\s(?:width|height|x|y)="[^"]*"/g, '')
+        + ` x="${x}" y="${y}" width="${emojiSize}" height="${emojiSize}">`
+    const center = `${x + emojiSize / 2} ${y + emojiSize / 2}`
+    return `<g transform="rotate(${rotate} ${center})">${openTag}${rawSvg.slice(openTagEnd + 1)}</g>`
+}
+
+// the browser rasterizes this tile once and repeats it, instead of
+// painting a grid of complex gradient/filter-heavy inline svgs
+const emojiTile = computed<string>(() => {
+    const rawSvg = icons[props.emoji] ?? icons.pizza
+    const placements = [
+        { x: 0, y: rowTop },
+        { x: pitch, y: rowTop },
+        { x: rowShift, y: rowTop + pitch },
+        { x: rowShift + pitch, y: rowTop + pitch },
+    ]
+    const body = placements.map(({ x, y }) => placeIcon(rawSvg, x, y, getRandomItem(rotates))).join('')
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="${tileSize}" height="${tileSize}" viewBox="0 0 ${tileSize} ${tileSize}">${body}</svg>`
+})
+
+const emojiStyle = computed(() => ({
+    backgroundImage: `url("${SvgToMiniDataURI(emojiTile.value)}")`,
+    backgroundSize: `${tileSize}px ${tileSize}px`,
+}))
 </script>
 
 <template>
     <div class="pattern">
-        <div v-if="type === 'emoji'" class="pattern__emoji">
-            <div v-for="row in rowCount" class="pattern__emoji__row" :style="{ '--col-count': colCount }">
-                <component v-for="item in colCount" :is="icon" :style="{ transform: `rotate(${getRandomItem(rotates)}deg)`, transformOrigin: 'center' }" />
-            </div>
-        </div>
+        <div v-if="type === 'emoji'" class="pattern__emoji" :style="emojiStyle"></div>
         <Transition name="slide-in-up">
             <div class="pattern__color" v-if="type !== 'emoji'" :style="{ background }"></div>
         </Transition>
@@ -71,8 +99,6 @@ const colCount = ref(4)
 
 <style lang="postcss" scoped>
 .pattern {
-    --emoji-size: 60px;
-
     position: relative;
     width: 100%;
     height: 100%;
@@ -81,22 +107,8 @@ const colCount = ref(4)
 
     &__emoji {
         position: absolute;
-
-        & > *:nth-child(2n) {
-            transform: translateX(calc(var(--emoji-size) / 3));
-        }
-
-        & > *:nth-child(2n+1) {
-            transform: translateX(calc(var(--emoji-size) / -3));
-        }
-
-        &__row {
-            font-size: var(--emoji-size);
-            display: grid;
-            grid-template-columns: repeat(var(--col-count, 4), auto);
-            gap: calc(var(--emoji-size) * 1.2);
-            padding: calc(var(--emoji-size) * 0.6) 0;
-        }
+        inset: 0;
+        background-repeat: repeat;
     }
 
     &__color {
