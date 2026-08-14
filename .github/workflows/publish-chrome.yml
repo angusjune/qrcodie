@@ -151,14 +151,18 @@ jobs:
           ACCESS_TOKEN: ${{ steps.auth.outputs.access_token }}
           ITEM: ${{ steps.upload.outputs.item }}
         run: |
-          response="$(
+          if ! response="$(
             curl --silent --show-error --fail-with-body \
               --request POST \
               --header "Authorization: Bearer ${ACCESS_TOKEN}" \
-              --header "Content-Type: application/json" \
-              --data '{"publishType":"DEFAULT_PUBLISH"}' \
               "https://chromewebstore.googleapis.com/v2/${ITEM}:publish"
-          )"
+          )"; then
+            echo "::error::Chrome Web Store rejected the publish request"
+            if ! jq . <<< "${response}"; then
+              printf '%s\n' "${response}"
+            fi
+            exit 1
+          fi
 
           state="$(jq -r '.state // "unknown"' <<< "${response}")"
           echo "state=${state}" >> "${GITHUB_OUTPUT}"
