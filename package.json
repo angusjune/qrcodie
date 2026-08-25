@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "a chrome extension to generate QR codes",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build"
+    "build": "tsc && vite build",
+    "test": "node --test --experimental-strip-types tests/*.test.ts"
   },
   "devDependencies": {
     "@crxjs/vite-plugin": "^1.0.14",

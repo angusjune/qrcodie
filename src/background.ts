@@ -2,6 +2,7 @@ import { ref } from 'vue'
 import { getIconDictionary, colors } from '@/action-icon'
 import { msg } from '@/utils/i18n'
 import { defaultOptions } from '@/utils/options'
+import { openQrCodePopup } from '@/utils/popup-source'
 
 const optionsStored     = ref<UserOptions>({} as UserOptions);
 const colorSchemeStored = ref<ColorScheme>('light');
@@ -51,24 +52,19 @@ chrome.storage.onChanged.addListener((changes, areaName) => {
 });
 
 // context menus
-chrome.contextMenus.onClicked.addListener(({ menuItemId }, tab) => {
+chrome.contextMenus.onClicked.addListener(async ({ menuItemId, pageUrl }) => {
     switch(menuItemId) {
         case 'generateQrCode':
-            qrCodePopupWindow();
+            try {
+                await openQrCodePopup(pageUrl)
+            } catch (error) {
+                console.error('Failed to open QR code popup:', error)
+            }
             break;
         default:
             break;
     }
 });
-
-function qrCodePopupWindow() {
-    chrome.windows.create({
-        url: 'popup.html',
-        type: 'popup',
-        width: 340,
-        height: 450,
-    });
-}
 
 chrome.runtime.onInstalled.addListener(() => {
     setIcon();

@@ -10,6 +10,7 @@ import QcPattern from './components/QcPattern.vue'
 import QcSwitchButton from './components/QcSwitchButton.vue'
 import { msg } from '@/utils/i18n'
 import { getOptions, setOptions } from '@/utils/options'
+import { resolvePopupSource } from '@/utils/popup-source'
 
 const options = ref<UserOptions>({} as UserOptions)
 
@@ -46,20 +47,16 @@ watch(options, debounce(val => {
 
 onMounted(async () => {
     // get current tab url
-    const tab = await getCurrentTab()
-    currentUrl.value = tab?.url
+    try {
+        currentUrl.value = await resolvePopupSource(window.location.search)
+    } catch (error) {
+        console.error('Failed to resolve QR code source:', error)
+    }
 
     // set color scheme
     const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches
     chrome.storage.local.set({ colorScheme: isDark ? 'dark' : 'light' })
 })
-
-// get info of the current tab
-async function getCurrentTab() {
-    const queryOptions = { active: true, lastFocusedWindow: true };
-    const [tab] = await chrome.tabs.query(queryOptions);
-    return tab;
-}
 
 // generates qr code
 function generateCode(content: string) {
